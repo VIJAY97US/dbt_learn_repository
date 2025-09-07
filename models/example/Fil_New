@@ -1,1 +1,1 @@
-SELECT * FROM my_first_table WHERE id IN ('1','3')
+SELECT 'TRY OUT THE DBT TO SF UPD SEP 6th' AS DISPLAY
