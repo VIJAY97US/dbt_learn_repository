@@ -38,3 +38,7 @@ models:
       +database: DBTPRACTICE
       +schema: staging
       +materialized: table
+  cleansed:
+     +database: DBTPRACTICE
+     +schema: cleansed
+     +materialized: view
