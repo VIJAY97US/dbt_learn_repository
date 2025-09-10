@@ -39,6 +39,6 @@ models:
       +schema: staging
       +materialized: table
   cleansed:
-     +database: DBTPRACTICE
-     +schema: cleansed
-     +materialized: view
+      +database: DBTPRACTICE             #  Your final/cleansing layer
+      +schema: cleansed
+      +materialized: view

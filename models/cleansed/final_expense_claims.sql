@@ -1,3 +1,9 @@
+
+{{ config(
+    materialized='table',
+    schema='cleansed'
+) }}
+
 WITH base AS (
     SELECT * FROM DBTPRACTICE.STAGING.STG_EXPENSES
 ),
