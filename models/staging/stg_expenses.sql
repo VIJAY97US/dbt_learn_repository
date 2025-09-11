@@ -11,7 +11,7 @@ WITH ranked_claims AS (
         claim_date,
         expense_type,
         claimed_amount,
-        currency,
+        currency,   
         approval_status,
         approver_id,
         ROW_NUMBER() OVER (PARTITION BY claim_id ORDER BY claim_date DESC) AS rn

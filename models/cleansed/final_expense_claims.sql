@@ -5,7 +5,7 @@
 ) }}
 
 WITH base AS (
-    SELECT * FROM DBTPRACTICE.STAGING.STG_EXPENSES
+    SELECT * FROM {{ ref('stg_expenses') }}
 ),
 
 dq_check AS (
