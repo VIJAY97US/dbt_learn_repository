@@ -1,9 +1,4 @@
 
-{{ config(
-    materialized='table',
-    schema='cleansed'
-) }}
-
 WITH base AS (
     SELECT * FROM {{ ref('stg_expenses') }}
 ),

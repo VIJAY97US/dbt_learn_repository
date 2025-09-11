@@ -1,9 +1,4 @@
 
-{{ config(
-    materialized='view',
-    schema='staging'
-) }}
-
 WITH ranked_claims AS (
     SELECT
         claim_id,
