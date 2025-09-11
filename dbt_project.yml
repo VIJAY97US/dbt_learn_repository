@@ -35,10 +35,10 @@ models:
     example:
       +materialized: view
   staging:
-      +database: DBTPRACTICE
+      +database: DEMO_DB
       +schema: staging
       +materialized: table
   cleansed:
-      +database: DBTPRACTICE              
+      +database: DEMO_DB
       +schema: cleansed
       +materialized: view

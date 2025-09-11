@@ -1,4 +1,8 @@
-
+{{ config(
+    database= 'DEMO_DB',
+    materialized='view',
+    schema='cleansed'
+) }}
 WITH base AS (
     SELECT * FROM {{ ref('stg_expenses') }}
 ),
