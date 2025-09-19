@@ -1,3 +1,8 @@
+{{ config(
+    database= 'DEMO_DB',
+    (materialized='table', transient=false),
+    schema='staging'
+) }}
 select
 C.*
 from 

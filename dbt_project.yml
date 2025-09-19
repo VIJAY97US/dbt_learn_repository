@@ -33,12 +33,12 @@ models:
   dbt_learn_repository:
     # Config indicated by + and applies to all files under models/example/
     example:
-      +materialized: view
-  staging:
+      +materialized: table
+    staging:
       +database: DEMO_DB
       +schema: staging
       +materialized: table
-  cleansed:
+    cleansed:
       +database: DEMO_DB
       +schema: cleansed
       +materialized: view

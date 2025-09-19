@@ -1,4 +1,6 @@
 {{ config(
+    database= 'DEMO_DB',
+    schema='staging',
     materialized='ephemeral'
 ) }}
 
