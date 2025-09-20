@@ -1,7 +1,7 @@
 {{ config(
     database= 'DEMO_DB',
-    materialized='table',
-    transient=false,
+    materialized='view',
+    secure=true,
     schema='staging'
 ) }}
 select
