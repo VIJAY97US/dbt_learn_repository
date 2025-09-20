@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: TAMIL              # logical name for source
+  - name: ecommerce              # logical name for source
     database: RAW
     schema: ECOMMERCE
     tables:
