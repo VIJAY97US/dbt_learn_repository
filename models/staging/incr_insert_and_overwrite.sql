@@ -1,9 +1,7 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='insert_overwrite',
-    partition_by={'field': 'order_date', 'data_type': 'date'},
-    database='demo_db',
-    schema='public'
+    partition_by={'field': 'order_date', 'data_type': 'date'}
 ) }}
 
 SELECT
