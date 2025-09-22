@@ -1,2 +1,4 @@
+{{ config(materialized='view') }}
+
 select *
-from {{ source('my_source_name', 'raw_orders') }}
+from {{ source('ecommerce', 'raw_orders') }}
