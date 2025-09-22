@@ -35,8 +35,8 @@ models:
     example:
       +materialized: table
     staging:
-      +database: RAW
-      +schema: ECOMMERCE
+      +database: DEMO_DB
+      +schema: STAGING
       +materialized: table
     cleansed:
       +database: DEMO_DB
