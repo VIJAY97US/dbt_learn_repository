@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: ecommerce              # logical name for source
+    database: raw
+    schema: ecommerce
+    tables:
+      - name: raw_customers
+      - name: raw_orders

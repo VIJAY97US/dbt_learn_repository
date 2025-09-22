@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: ecommerce              # logical name for source
-    database: RAW
-    schema: ECOMMERCE
-    tables:
-      - name: RAW_CUSTOMERS
-      - name: RAW_ORDERS
