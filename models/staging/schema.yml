@@ -3,7 +3,14 @@ version: 2
 sources:
   - name: ecommerce              # logical name for source
     database: raw
-    schema: ecommerce
+    schema: ECOMMERCE
     tables:
       - name: raw_customers
       - name: raw_orders
+
+  - name: testsources              # logical name for source
+    database: demo_db
+    schema: public
+    tables:
+      - name: raw_customers
+      - name: raw_orders    
