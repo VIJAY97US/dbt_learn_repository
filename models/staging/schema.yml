@@ -8,7 +8,7 @@ sources:
       - name: raw_customers
       - name: raw_orders
 
-  - name: testsources              # logical name for source
+  - name: rawsource              # logical name for source
     database: demo_db
     schema: public
     tables:

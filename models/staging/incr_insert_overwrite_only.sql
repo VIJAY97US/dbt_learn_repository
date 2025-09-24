@@ -11,7 +11,7 @@ SELECT
   customer_id,
   amount,
   order_date
-FROM {{ source('testsources', 'raw_orders') }}
+FROM {{ source('rawsource', 'raw_orders') }}
 
 {% if is_incremental() %}
   -- Filter only recent dates to limit what partitions are overwritten
