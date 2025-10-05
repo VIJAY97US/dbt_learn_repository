@@ -13,4 +13,36 @@ sources:
     schema: public
     tables:
       - name: raw_customers
-      - name: raw_orders    
+      - name: raw_orders
+
+models:
+  - name: Tst_customers
+    description: "Customer master table"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+      - name: country
+        tests:
+          - accepted_values:
+              values: ['US', 'CA', 'IN', 'UK', 'AU', 'KR', 'RU']
+
+  - name: stg_perm_tbl_nation_cust
+    description: "Customer orders"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('customers')
+              field: id
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['pending', 'shipped', 'completed']
