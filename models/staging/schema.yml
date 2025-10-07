@@ -16,7 +16,7 @@ sources:
       - name: raw_orders    
 
 models:
-  - name: Gen_Tst_customers
+  - name: Gen_Tst_customers_M
     description: "Customer master table"
     columns:
       - name: id
@@ -28,7 +28,7 @@ models:
           - accepted_values:
               values: ['US', 'CA', 'IN', 'UK', 'AU', 'KR', 'RU']
 
-  - name: Gen_Tst_orders
+  - name: Gen_Tst_orders_M
     description: "Customer orders"
     columns:
       - name: order_id

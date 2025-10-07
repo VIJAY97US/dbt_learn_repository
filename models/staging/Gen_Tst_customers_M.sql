@@ -4,4 +4,4 @@
     schema='public'
 ) }}
 
-SELECT * FROM demo_db.public.Gen_Tst_customers;
+SELECT * FROM demo_db.public.Gen_Tst_customers
