@@ -61,7 +61,7 @@ sources:
               - accepted_values:
                   values: ['shipped', 'completed', 'pending']
   
-  - name: demo_Tst_store_failures   # Day4_6Tst_store_failures
+  - name: demo_Tst_store_failures   # Day4_6Tst_store_failures tbl
     database: DEMO_DB
     schema: public
     tables:
@@ -85,8 +85,6 @@ sources:
                   values: ['shipped', 'completed', 'pending']
                   severity: warn            # warn only, don’t block
                   store_failures: true
-
-
 
 models:     
   - name: Gen_Tst_customers_M       # Day4_1GenTst Model name Gen_Tst_customers_M
@@ -133,3 +131,24 @@ models:
           - not_null
           - accepted_values:
               values: ['shipped', 'completed', 'pending']
+
+  - name: Tst_store_failures_orders_raw_M                         # Day4_6Tst_store_failures tbl
+    description: "Staging orders table (built from demo.orders_raw)"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null:
+              severity: error
+              store_failures: true
+          - unique:
+              severity: error
+              store_failures: true
+      - name: STATUS
+        tests:
+          - not_null:
+              severity: error
+              store_failures: true
+          - accepted_values:
+              values: ['shipped', 'completed', 'pending']
+              severity: warn
+              store_failures: true
