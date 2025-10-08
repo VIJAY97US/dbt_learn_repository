@@ -1,4 +1,4 @@
 SELECT A.CUSTOMERNAME,A.PHONE,A.ACCOUNTBALANCE,B.NATIONNAME,B.COMMENT 
 FROM {{ref("stg_customers")}} AS A
-INNER JOIN {{ref("stg_nation")}} AS B
+INNER JOIN {{ref("Mdl_Seeds_Countries")}} AS B
 ON A.NATIONID = B.NATIONID
