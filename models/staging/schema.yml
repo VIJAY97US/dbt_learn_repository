@@ -15,8 +15,53 @@ sources:
       - name: raw_customers
       - name: raw_orders    
 
-models:
-  - name: Gen_Tst_customers_M
+  - name: Sourcedemo                # Day4_2TestonSourceTbl Source name is Sourcedemo
+    database: DEMO_DB
+    schema: public
+    tables:
+      - name: Tst_Sr_Tbl_CUSTOMERS  # Day4_2TestonSourceTbl Tst_Sr_Tbl_CUSTOMERS
+        description: Demo customers
+        columns:
+          - name: CUST_ID
+            tests:
+              - not_null
+              - unique
+          - name: EMAIL
+            tests:
+              - not_null
+      - name: Tst_Sr_Tbl_ORDERS     # Day4_2TestonSourceTbl Tst_Sr_Tbl_ORDERS
+        description: Demo orders
+        columns:
+          - name: ORDER_ID
+            tests: [not_null, unique]
+          - name: STATUS
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['O','F','P']
+          - name: CUST_ID
+            tests:
+              - not_null
+              - relationships:
+                  to: source('Sourcedemo','Tst_Sr_Tbl_CUSTOMERS')
+                  field: CUST_ID
+
+  - name: demoSr_Tbl_Mdl            # Day4_3TestonSourceTblModels Tst_Sr_Tbl_Mdl_orders_raw
+    database: DEMO_DB
+    schema: public
+    tables:
+      - name: Tst_Sr_Tbl_Mdl_orders_raw
+        description: Demo orders
+        columns:
+          - name: ORDER_ID
+            tests: [not_null, unique]
+          - name: STATUS
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['shipped', 'completed', 'pending']
+models:     
+  - name: Gen_Tst_customers_M       # Day4_1GenTst Model name Gen_Tst_customers_M
     description: "Customer master table"
     columns:
       - name: id
@@ -29,7 +74,7 @@ models:
               values: ['US', 'CA', 'IN', 'UK', 'AU', 'KR', 'RU']
 
   - name: Gen_Tst_orders_M
-    description: "Customer orders"
+    description: "Customer orders"    # Day4_1GenTst Model name Gen_Tst_orders_M
     columns:
       - name: order_id
         tests:
@@ -46,3 +91,17 @@ models:
           - not_null
           - accepted_values:
               values: ['pending', 'shipped', 'completed']
+
+              
+  - name: Tst_Mdl_orders_raw
+    description: "Staging orders table (built from demo.orders_raw)"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+      - name: STATUS
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['shipped', 'completed', 'pending']
